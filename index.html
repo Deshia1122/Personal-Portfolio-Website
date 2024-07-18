@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!----------- Specifies the character encoding for the HTML document -------------->
+    <meta charset="UTF-8">
+    <!----------- Ensures the website is responsive and adjusts to the screen width of the device ----------->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----------- Sets the title of the HTML document, which is displayed in the browser tab --------------->
+    <title>My Portfolio Website</title>
+    <!----------- Links an external CSS file for styling the HTML document ------------->
+    <link rel="stylesheet" href="styles.css">
+    <!------------ Links to Font Awesome for using icons in the website ------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+</head>
+<body> 
+    <!------------ Header section containing navigation and introductory text ------------->
+    <div id="header">
+        <div class="container">
+            <nav>
+                <!------------ Logo image for the website ------------->
+                <img src="images/Preview.png" alt="logo" class="logo">
+                <!------------- Navigation menu with links to different sections of the website ------------>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <!---------- Short description ----------->
+                <p>Computer Engineer</p>
+                <!---------- Main header with the name and introduction ----------->
+                <h1>Hi, I am <span>Deshia</span> Ahmad.<br>I am doing Computer Engineering from UET Taxila.</h1>
+            </div>
+        </div>
+    </div>
+    
+    <!------------ About section with information about the person ------------>
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <!------------ Image column in the about section -------------->
+                <div class="about-col-1">
+                    <img src="images/user.jpg" alt="About Image">
+                </div>
+                <!-------------- Text column in the about section -------------->
+                <div class="about-col-2">
+                    <!-------------- Subtitle for the about section ------------>
+                    <h1 class="sub-tiltle">About Me</h1>
+                    <!------------ Detailed description about the person ------------->
+                    <p>Welcome! I'm Deshia Ahmad, a Computer Engineer with a passion for <br>harnessing technology to drive positive change.<br>With a solid foundation in computer science and engineering principles,<br> I'm dedicated to designing, developing, and deploying innovative solutions <br>that make a real difference. Explore my portfolio to see how I'm using <br>my skills to create impact and push the boundaries of what's possible.</p>
+                    <!----------------- Tabs for switching between skills, projects, and education ------------->
+                    <div class="tab-titles">
+                        <p class="tab-links active-links" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('projects')">Projects</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <!----------------- Content for the skills tab -------------->
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>App Development</span><br>Building Android Apps</li>
+                            <li><span>Data Analytics</span><br>Data Analysis</li>
+                        </ul>
+                    </div>
+                    <!-------------- Content for the projects tab ----------------->
+                    <div class="tab-contents" id="projects">
+                        <ul>
+                            <li><span>2024</span><br>Designing Web/App Interfaces</li>
+                            <li><span>2023</span><br>Web Development</li>
+                            <li><span>2022</span><br>Designing Interfaces for Web</li>
+                        </ul>
+                    </div>
+                    <!-------------- Content for the education tab --------------->
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2024-Currnet</span><br>Doing Computer Engineering</li>
+                            <li><span>2024-Currnet</span><br>Web Development Internship at A&D Tech</li>
+                            <li><span>2024-Currnet</span><br>Data Analytics Internship at Leverify Quest</li>
+                            <li><span>2020-2022</span><br>Intermediate Pre-Engineering</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!------------ Contact section for users to get in touch -------------->
+    <div id="contact">
+       <div class="container">
+        <div class="row">
+            <!-- Contact details and social media links -->
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-solid fa-paper-plane"></i>someone@gmail.com</p>
+                <p><i class="fas fa-solid fa-phone"></i>0123567896</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <a href="" class="btn btn2">Download CV</a>
+            </div>
+            <!------------- Contact form for user input --------------->
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+       </div>
+    </div>
+
+    <!-------------- Toggle button for switching between dark and light modes ------------->
+    <div class="container">
+        <h2>Dark/Light Mode Toggle</h2>
+        <button id="toggleBtn" onclick="toggleMode()">Toggle Mode</button>
+    </div>
+
+    <!-------------Link to external JavaScript file ----------->
+    <script src="script.js"></script>
+    <!------------- Inline JavaScript for tab functionality ------------->
+    <script>
+        // Get all elements with the class 'tab-links' and 'tab-contents'
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        // Function to open the selected tab and close others
+        function opentab(tabname){
+            // Remove the active class from all tab links
+            for(tablink of tablinks){
+                tablink.classList.remove("active-links");
+            }
+            // Remove the active class from all tab contents
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            // Add the active class to the current tab link and tab content
+            event.currentTarget.classList.add("active-links");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+</body>
+</html>
